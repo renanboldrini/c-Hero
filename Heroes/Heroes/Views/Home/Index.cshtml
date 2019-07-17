@@ -1,0 +1,404 @@
+﻿@model IEnumerable<Heroes.Models.Hero>
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+<style type="text/css">
+    body {
+        background: #392091;
+    }
+
+    #fundo-apresentacao-herois {
+        background-color: #0e0b16;
+    }
+
+    .contorno {
+        border-radius: 3px;
+        background-color: #1a1724;
+        padding: 15px 0 5px 0;
+        margin: 10px 0 10px 0;
+        font-size: 10px;
+        color: #e7dfdd;
+    }
+
+    .p-descricao-herois {
+        margin: 7px 0 0 0;
+    }
+
+    .img-apresentacao-herois {
+        max-width: 175px;
+        max-height: 230px;
+        border-radius: 3px;
+        width: 70%;
+    }
+
+    .botao-detalhe-heroi {
+        width: 63%;
+        height: 30px;
+        padding: 0;
+        margin-top: 10px;
+        background: #1a1724;
+        border: #4717f6 solid;
+        color: #e7dfdd;
+    }
+
+        .botao-detalhe-heroi:hover {
+            background: #4717f6;
+            border: #4717f6 solid;
+            color: #e7dfdd;
+        }
+
+    /*  selecao personagens */
+    .background-herois-selecao {
+        width: 100%;
+        height: 117px;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin: 30px 0 0 0;
+        border-radius: 3px;
+        transition: .2s ease;
+        border: solid #e7dfdd 1px;
+        opacity: 0.8;
+    }
+
+        .background-herois-selecao:hover {
+            border: solid #e7dfdd 2px;
+            opacity: 1;
+        }
+
+    .padding-col-heroi-selecao {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    .marg-row-correcao {
+        margin-bottom: 40px;
+    }
+
+    .texto-informativo {
+        display: none;
+    }
+
+    .campeao {
+    color: #a239ca;
+    font-size: 21px;
+    font-weight: 800;
+    margin: 0px;
+    padding: 0;
+    text-align: center;
+    }
+
+    .perdedor {
+    color: #7e7876;
+    font-size: 21px;
+    font-weight: 800;
+    margin: 0px;
+    padding: 0;
+    text-align: center;
+    }
+
+    .contorno-1{
+        border: 3px solid;
+        border-color: #353036;  /*#e7dfdd;*/ 
+    }
+    .contorno-2{
+        border: 5px solid;
+        border-color: #a239ca;
+    }
+    .contorno-0 {
+        border: 3px solid;
+        border-color: #e7dfdd; 
+    }
+
+    .img-vencedor {
+    width: 50px;
+    }
+    .img-perdedor {
+        margin-right: 11px;
+        width: 32px;
+        margin-top: 9px;
+    }
+    .div-btn-p {
+        padding: 0;
+    }
+    #perdedor1 {
+        display:none;
+    }
+    #campeao1 {
+        display:none;
+    }
+    #perdedor2 {
+        display:none;
+    }
+    #campeao2 {
+        display:none;
+    }
+    #btn-fig {
+    margin-top: 80px;
+    }
+    #img-vs {
+    width: 60px;
+    margin-top: 140px;
+    }
+
+
+
+</style>
+
+
+
+
+
+
+
+
+
+
+<div id="fundo-apresentacao-herois" class="text-center container-fluid">
+    <div class="row">
+        <div class="col-md-1 col-xs-0">
+        </div>
+        <div class="col-md-4 col-xs-5">
+            <div id="campeao1" class="campeao">
+                <img id="img-vencedor" class="img-vencedor" src="https://cdn.pixabay.com/photo/2013/07/12/12/22/explosion-145687_960_720.png">
+                Vencedor
+            </div>
+            <div id="perdedor1" class="perdedor"><img id="img-perdedor" class="img-perdedor" src="https://cdn.pixabay.com/photo/2014/04/03/11/54/headstone-312540_960_720.png"> R.I.P </div>
+            <div id="heroi-contorno-1" class="contorno contorno-0">
+                <img id="img-heori1" class="img-apresentacao-herois" src="https://image.freepik.com/vetores-gratis/ilustracao-de-silhueta-de-um-garoto-fingindo-como-um-super-heroi_24381-159.jpg">
+                <p id="supernome1" class="p-descricao-herois"><b>Super nome:</b></p>
+                <p id="nome1" class="p-descricao-herois"><b>Nome:</b> </p>
+                <p id="universo-planeta1" class="p-descricao-herois"><b>Universo: </b>   <b>Planeta: </b> </p>
+                <p id="categoria1" class="p-descricao-herois"><b>Categoria:</b></p>
+                <p class="p-descricao-herois"><b>Super poderes:</b></p>
+                <p id="sp1-1" class="p-descricao-herois"> ...</p>
+                <p id="sp2-1" class="p-descricao-herois"> ... </p>
+                <p id="sp3-1" class="p-descricao-herois"> ... </p>
+                <button id="dercri-1" type="button" class="btn botao-detalhe-heroi">Origem</button>
+                <p id="descricao1" class="texto-informativo"></p>
+                <p id="forca1" class="texto-informativo">-1</p>
+            </div>
+        </div>
+        <div class="div-btn-p col-md-2 col-xs-2 ">
+            <button id="btn-fig" type="button" onclick="batalha()" class="btn btn-danger">Fight</button>
+            <br />
+            <img id="img-vs" class="img-vs" src="https://i2.wp.com/vspodcast.com.br/wp-content/uploads/2017/12/cropped-vs.png">
+        </div>
+        <div class="col-md-4 col-xs-5">
+            <div id="campeao2" class="campeao">
+                <img id="img-vencedor" class="img-vencedor" src="https://cdn.pixabay.com/photo/2013/07/12/12/22/explosion-145687_960_720.png">
+                Vencedor
+            </div>
+            <div id="perdedor2" class="perdedor"><img id="img-perdedor" class="img-perdedor" src="https://cdn.pixabay.com/photo/2014/04/03/11/54/headstone-312540_960_720.png"> R.I.P </div>
+            <div id="heroi-contorno-2" class="contorno contorno-0">
+                <img id="img-heori2" class="img-apresentacao-herois" src="https://image.freepik.com/vetores-gratis/ilustracao-de-silhueta-de-um-garoto-fingindo-como-um-super-heroi_24381-159.jpg">
+                <p id="supernome2" class="p-descricao-herois"><b>Super nome:</b></p>
+                <p id="nome2" class="p-descricao-herois"><b>Nome:</b> </p>
+                <p id="universo-planeta2" class="p-descricao-herois"><b>Universo: </b> <b>Planeta: </b> </p>
+                <p id="categoria2" class="p-descricao-herois"><b>Categoria:</b> </p>
+                <p class="p-descricao-herois"><b>Super poderes:</b></p>
+                <p id="sp1-2" class="p-descricao-herois"> ... </p>
+                <p id="sp2-2" class="p-descricao-herois"> ... </p>
+                <p id="sp3-2" class="p-descricao-herois"> ... </p>
+                <button id="dercri-2" type="button" class="btn botao-detalhe-heroi" onclick="">Origem</button>
+                <p id="descricao2" class="texto-informativo">  </p>
+                <p id="forca2" class="texto-informativo">-1</p>
+            </div>
+        </div>
+        <div class="col-md-1 col-xs-0">
+        </div>
+    </div>
+
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-1 col-xs-0">
+        </div>
+        <div class="col-sm-10 col-xs-12">
+            <div class="marg-row-correcao row">
+
+
+                @foreach (var item in Model)
+                {
+
+
+                    <div onclick="trocaHerois(@Html.DisplayFor(modelItem => item.Id))" class="padding-col-heroi-selecao col-md-2 col-xs-3">
+                        <div data-toggle="tooltip" title="@Html.DisplayFor(modelItem => item.SuperName)" id="@Html.DisplayFor(modelItem => item.Id)" class="background-herois-selecao" style="background-image: url('@Html.DisplayFor(modelItem => item.Img)')">
+                            <p id="imge-@Html.DisplayFor(modelItem => item.Id)" class="texto-informativo">
+                                @Html.DisplayFor(modelItem => item.Img)
+                            </p>
+
+                            <p id="nome-@Html.DisplayFor(modelItem => item.Id)" class="texto-informativo">
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </p>
+
+                            <p id="superNome-@Html.DisplayFor(modelItem => item.Id)" class="texto-informativo">
+                                @Html.DisplayFor(modelItem => item.SuperName)
+                            </p>
+
+                            <p id="universo-@Html.DisplayFor(modelItem => item.Id)" class="texto-informativo">
+                                @Html.DisplayFor(modelItem => item.Universe)
+                            </p>
+
+                            <p id="planeta-@Html.DisplayFor(modelItem => item.Id)" class="texto-informativo">
+                                @Html.DisplayFor(modelItem => item.Planet.Name)
+                            </p>
+
+                            <p id="categoria-@Html.DisplayFor(modelItem => item.Id)" class="texto-informativo">
+                                @Html.DisplayFor(modelItem => item.Categoria.Name)
+                            </p>
+
+                            <p id="p1-@Html.DisplayFor(modelItem => item.Id)" class="texto-informativo">
+                                @Html.DisplayFor(modelItem => item.Power1)
+                            </p>
+
+                            <p id="p2-@Html.DisplayFor(modelItem => item.Id)" class="texto-informativo">
+                                @Html.DisplayFor(modelItem => item.Power2)
+                            </p>
+
+                            <p id="p3-@Html.DisplayFor(modelItem => item.Id)" class="texto-informativo">
+                                @Html.DisplayFor(modelItem => item.Power3)
+                            </p>
+
+                            <p id="descr-@Html.DisplayFor(modelItem => item.Id)" class="texto-informativo">
+                                @Html.DisplayFor(modelItem => item.Description)
+                            </p>
+
+                            <p id="force-@Html.DisplayFor(modelItem => item.Id)" class="texto-informativo">
+                                @Html.DisplayFor(modelItem => item.Force)
+                            </p>
+                        </div>
+                    </div>
+                }
+
+
+
+
+            </div>
+        </div>
+        <div class="col-sm-1 col-xs-0">
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 id="titulo-modal" class="modal-title">Modal Header</h4>
+            </div>
+            <div id="descricao-modal" class="modal-body">
+                <p>Some text in the modal.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+        @section Scripts {
+            @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+        }
+
+        <script>
+            var altHeroi = 1;
+
+    function batalha() {
+        if(!(parseInt($('#forca2').text()) == -1) && !(parseInt($('#forca1').text()) == -1)){
+            if (parseFloat($('#forca1').text()) > parseFloat($('#forca2').text())) {
+                document.getElementById('campeao1').style.display = 'block';
+                document.getElementById('perdedor2').style.display = 'block';
+                $('#heroi-contorno-1').removeClass('contorno-0')
+                $('#heroi-contorno-1').removeClass('contorno-1')
+                $('#heroi-contorno-1').addClass('contorno-2')
+
+                $('#heroi-contorno-2').removeClass('contorno-0')
+                $('#heroi-contorno-2').removeClass('contorno-2')
+                $('#heroi-contorno-2').addClass('contorno-1')
+
+            }
+            if (parseFloat($('#forca2').text()) > parseFloat($('#forca1').text())) {
+                document.getElementById('campeao2').style.display = 'block';
+                document.getElementById('perdedor1').style.display = 'block';
+
+                $('#heroi-contorno-2').removeClass('contorno-0')
+                $('#heroi-contorno-2').removeClass('contorno-1')
+                $('#heroi-contorno-2').addClass('contorno-2')
+
+                $('#heroi-contorno-1').removeClass('contorno-0')
+                $('#heroi-contorno-1').removeClass('contorno-2')
+                $('#heroi-contorno-1').addClass('contorno-1')
+            }
+            if (parseFloat($('#forca2').text()) == parseFloat($('#forca1').text())) {
+                //empate
+            }
+        console.log("atacar")
+        }
+        
+    }
+
+            function openModal(id) {
+                $('#titulo-modal').html($('#superNome-' + id).text());
+                $('#descricao-modal').html($('#descr-' + id).text());
+                $('#myModal').modal('show');
+            }
+
+            function trocaHerois(id) {
+                document.getElementById('campeao2').style.display = 'none';
+                document.getElementById('perdedor1').style.display = 'none';
+                document.getElementById('campeao1').style.display = 'none';
+                document.getElementById('perdedor2').style.display = 'none';
+
+                $('#heroi-contorno-2').removeClass('contorno-2')
+                $('#heroi-contorno-2').removeClass('contorno-1')
+                $('#heroi-contorno-2').addClass('contorno-0')
+
+                $('#heroi-contorno-1').removeClass('contorno-1')
+                $('#heroi-contorno-1').removeClass('contorno-2')
+                $('#heroi-contorno-1').addClass('contorno-0')
+
+                $('#img-heori' + altHeroi).attr("src", $('#imge-' + id).text());
+
+                $('#supernome' + altHeroi).html("<b>Super nome:</b>" + $('#superNome-' + id).text())
+
+                $('#nome' + altHeroi).html("<b>Nome:</b>" + $('#nome-' + id).text())
+
+                $('#universo-planeta' + altHeroi).html("<b>Universo: </b> " + $('#universo-' + id).text() + "   <b>Planeta: </b> " + $('#planeta-' + id).text())
+
+                $('#categoria' + altHeroi).html("<b>Categoria:</b>" + $('#categoria-' + id).text())
+
+                $('#sp1-' + altHeroi).html($('#p1-' + id).text())
+
+                $('#sp2-' + altHeroi).html($('#p2-' + id).text())
+
+                $('#sp3-' + altHeroi).html($('#p3-' + id).text())
+
+                $('#descricao' + altHeroi).html($('#descr-' + id).text())
+
+                $('#forca' + altHeroi).html($('#force-' + id).text())
+
+                $("#dercri-" + altHeroi).attr('onClick', 'openModal(' + id + ')');
+
+                altHeroiFun()
+            }
+
+
+            function altHeroiFun() {
+                if (altHeroi == 1) {
+                    altHeroi = 2;
+                } else {
+                    altHeroi = 1;
+                }
+            }
+        </script>

@@ -1,0 +1,84 @@
+﻿@model Heroes.Models.Hero
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Hero</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Img)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Img)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SuperName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SuperName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Planet)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Planet.Id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Categoria)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Categoria.Id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Power1)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Power1)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Power2)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Power2)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Power3)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Power3)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Universe)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Universe)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Force)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Force)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
